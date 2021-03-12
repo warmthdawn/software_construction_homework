@@ -36,4 +36,5 @@ namespace Shapes
         {
             return Bottom > 0 && Height > 0;
         }
+    }
 }
