@@ -35,6 +35,7 @@ namespace OrderManager.Tests
             var o = OrderService.QueryById(3);
             Assert.IsNotNull(o);
             Assert.AreEqual(new Order(3, "计算机网络", 1, "法外狂徒张三", 233), o);
+            Assert.IsNull(OrderService.QueryById(100));
         }
 
         [TestMethod()]
@@ -68,12 +69,14 @@ namespace OrderManager.Tests
         public void QueryByAmountTest()
         {
             var result = OrderService.QueryByAmount(100, 500);
-
+            
             Assert.IsNotNull(result);
             foreach (var item in result)
             {
                 Assert.IsTrue(item.OrderAmount >= 100 && item.OrderAmount <= 500);
             }
+
+
         }
 
 
@@ -92,7 +95,7 @@ namespace OrderManager.Tests
         public void DeleteOrderTest()
         {
             OrderService.DeleteOrder(3);
-            OrderService.DeleteOrder(100);
+            Assert.ThrowsException<InvalidOperationException>(() => OrderService.DeleteOrder(100));
             Assert.IsNull(OrderService.QueryById(3));
         }
 
