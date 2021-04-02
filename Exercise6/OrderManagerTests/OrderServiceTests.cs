@@ -92,6 +92,7 @@ namespace OrderManager.Tests
         public void DeleteOrderTest()
         {
             OrderService.DeleteOrder(3);
+            OrderService.DeleteOrder(100);
             Assert.IsNull(OrderService.QueryById(3));
         }
 
