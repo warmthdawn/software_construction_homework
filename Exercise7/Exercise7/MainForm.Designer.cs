@@ -49,7 +49,9 @@ namespace Exercise7
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panColor = new System.Windows.Forms.Panel();
             this.btnColor = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnDraw = new System.Windows.Forms.Button();
+            this.chkRecursion = new System.Windows.Forms.CheckBox();
             this.panBoard = new System.Windows.Forms.Panel();
             this.layoutMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -63,6 +65,7 @@ namespace Exercise7
             ((System.ComponentModel.ISupportInitialize)(this.nudDepth)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutMain
@@ -87,7 +90,7 @@ namespace Exercise7
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnDraw, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -237,7 +240,7 @@ namespace Exercise7
             this.nudLength.Size = new System.Drawing.Size(122, 23);
             this.nudLength.TabIndex = 7;
             this.nudLength.Value = new decimal(new int[] {
-            80,
+            120,
             0,
             0,
             0});
@@ -367,17 +370,45 @@ namespace Exercise7
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btnDraw, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.chkRecursion, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 404);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(234, 40);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
             // btnDraw
             // 
             this.btnDraw.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnDraw.Location = new System.Drawing.Point(139, 412);
+            this.btnDraw.Location = new System.Drawing.Point(139, 8);
             this.btnDraw.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.btnDraw.Name = "btnDraw";
             this.btnDraw.Size = new System.Drawing.Size(75, 23);
-            this.btnDraw.TabIndex = 2;
+            this.btnDraw.TabIndex = 3;
             this.btnDraw.Text = "绘制Cayles树";
             this.btnDraw.UseVisualStyleBackColor = true;
             this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
+            // 
+            // chkRecursion
+            // 
+            this.chkRecursion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkRecursion.AutoSize = true;
+            this.chkRecursion.Location = new System.Drawing.Point(21, 9);
+            this.chkRecursion.Name = "chkRecursion";
+            this.chkRecursion.Size = new System.Drawing.Size(75, 21);
+            this.chkRecursion.TabIndex = 4;
+            this.chkRecursion.Text = "递归绘制";
+            this.chkRecursion.UseVisualStyleBackColor = true;
             // 
             // panBoard
             // 
@@ -410,6 +441,8 @@ namespace Exercise7
             ((System.ComponentModel.ISupportInitialize)(this.nudDepth)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +453,6 @@ namespace Exercise7
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnDraw;
         private System.Windows.Forms.Panel panBoard;
         private System.Windows.Forms.TableLayoutPanel layoutTreeProp;
         private System.Windows.Forms.Label label1;
@@ -438,5 +470,9 @@ namespace Exercise7
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panColor;
         private System.Windows.Forms.Button btnColor;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnDraw;
+        private System.Windows.Forms.CheckBox chkRecursion;
+        private System.Windows.Forms.CheckBox chkRecure;
     }
 }
