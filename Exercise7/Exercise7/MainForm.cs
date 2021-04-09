@@ -178,5 +178,9 @@ namespace Exercise7
             SetBackgroundAndClear();
         }
 
+        private void nudPenSize_ValueChanged(object sender, EventArgs e)
+        {
+            _pen.Width = (int)nudPenSize.Value;
+        }
     }
 }
