@@ -79,6 +79,9 @@ namespace OrderManager
         }
         #endregion
 
+
+        private static int _incid = 0;
+        public static int NextId() => _incid++;
         public static bool AddOrder(Order order)
         {
             if (order == null || order.Details == null)
@@ -105,7 +108,7 @@ namespace OrderManager
 
             if (!string.IsNullOrEmpty(order.CustomerName))
                 currentOrder.CustomerName = order.CustomerName;
-            if (order.Details != null && order.Details.Length > 0)
+            if (order.Details != null && order.Details.Count > 0)
                 currentOrder.Details = order.Details;
             if (order.OrderAmount > 0)
                 currentOrder.OrderAmount = order.OrderAmount;
@@ -136,8 +139,10 @@ namespace OrderManager
 
         public static void Export(string fileName)
         {
-            using var output = File.OpenWrite(fileName);
-            _serializer.Serialize(output, _orders.ToArray());
+            using (var output = File.OpenWrite(fileName))
+            {
+                _serializer.Serialize(output, _orders.ToArray());
+            }
 
         }
 
@@ -154,8 +159,11 @@ namespace OrderManager
 
             if (!File.Exists(fileName))
                 throw new InvalidOperationException("文件不存在");
-            using var input = File.OpenRead(fileName);
-            Order[] arr = _serializer.Deserialize(input) as Order[];
+            Order[] arr = null;
+            using (var input = File.OpenRead(fileName))
+            {
+                arr = _serializer.Deserialize(input) as Order[];
+            }
             if (arr == null)
                 throw new InvalidOperationException("读取失败");
             if (removeCurrent)
@@ -164,9 +172,18 @@ namespace OrderManager
             }
             foreach (var o in arr)
             {
+                _incid = Math.Max(_incid, o.OrderId + 1);
                 AddOrder(o);
             }
 
+        }
+
+        public static List<Order> Orders
+        {
+            get
+            {
+                return _orders;
+            }
         }
 
 

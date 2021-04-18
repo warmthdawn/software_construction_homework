@@ -11,6 +11,11 @@ namespace OrderManager
         {
         }
 
+        public OrderDetails(OrderDetails od)
+            : this(od.ProductName, od.ProductNumber)
+        {
+        }
+
         public OrderDetails(string productName, int productNumber)
         {
             ProductName = productName;
@@ -35,7 +40,10 @@ namespace OrderManager
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(ProductName, ProductNumber);
+            int hashCode = 699931452;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ProductName);
+            hashCode = hashCode * -1521134295 + ProductNumber.GetHashCode();
+            return hashCode;
         }
 
         public override string ToString()
