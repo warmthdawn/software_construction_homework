@@ -39,7 +39,7 @@ namespace OrderFrom
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(TryGetSelectedOrder(out var o))
+            if (TryGetSelectedOrder(out var o))
             {
                 OrderService.DeleteOrder(o.OrderId);
                 RefreshList();
@@ -76,7 +76,7 @@ namespace OrderFrom
             ofd.Filter = "Json 文件 (*.json)|*.json|所有文件|*.*";
             ofd.InitialDirectory = Environment.CurrentDirectory;
             ofd.DefaultExt = ".json";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
