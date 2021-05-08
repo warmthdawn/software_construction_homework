@@ -14,6 +14,7 @@ namespace OrderManager
         public OrderDetails(OrderDetails od)
             : this(od.ProductName, od.ProductNumber)
         {
+
         }
 
         public OrderDetails(string productName, int productNumber)

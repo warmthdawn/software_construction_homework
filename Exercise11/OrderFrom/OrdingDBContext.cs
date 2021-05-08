@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OrderManagerFramework
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]
+
     public class OrdingDBContext: DbContext
     {
         public OrdingDBContext()
